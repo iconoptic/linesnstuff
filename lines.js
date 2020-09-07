@@ -9,7 +9,7 @@ function reset () {
     linePoints[1] = findPoints()
     led.plot(linePoints[1][0], linePoints[1][1])
     slope = (linePoints[1][1] - linePoints[0][1])/(linePoints[1][0] - linePoints[0][0])
-    intercept = ((linePoints[1][1]*1.0) - (slope*linePoints[1][0]))*1.0
+    intercept = linePoints[1][1] - slope*linePoints[1][0]
     findFill()
     basic.pause(1000)
 }
