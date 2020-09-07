@@ -1,6 +1,7 @@
 let linePoints : number[][] = []
 let fillArea : boolean[][] = []
 let slope: number, intercept: number
+let displayTime : number
 
 function reset () {
     basic.clearScreen()
@@ -11,6 +12,7 @@ function reset () {
     slope = (linePoints[1][1] - linePoints[0][1])/(linePoints[1][0] - linePoints[0][0])
     intercept = linePoints[1][1] - slope*linePoints[1][0]
     findFill()
+    displayTime = 0
     basic.pause(1000)
 }
 
@@ -74,5 +76,6 @@ basic.forever(function () {
         led.plot(linePoints[0][0], linePoints[0][1])
         led.plot(linePoints[1][0], linePoints[1][1])
         basic.pause(250)
+        if (++displayTime > 5) reset()
     } 
 })
